@@ -10,7 +10,7 @@ metadata:
 spec:
   concurrencyPolicy: {{ .Values.concurrencyPolicy }}
   failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
-  schedule: {{ .Values.schedule }}
+  schedule: {{ .Values.schedule | quote }}
   successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
   jobTemplate:
     spec:
@@ -25,14 +25,18 @@ spec:
           - name: {{ .Chart.Name }}
             image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
             imagePullPolicy: {{ .Values.image.pullPolicy }}
+{{- if .Values.env }}
             env:
-{{ toYaml .Values.env | indent 12 }}
+{{ toYaml .Values.env | indent 14 }}
+{{- end }}
             volumeMounts:
               - name: gcp-credentials
                 mountPath: /secrets/gcp
                 readOnly: true
+{{- if .Values.resources }}
             resources:
-  {{ toYaml .Values.resources | indent 12 }}
+{{ toYaml .Values.resources | indent 14 }}
+{{- end }}
           restartPolicy: {{ .Values.restartPolicy }}
           volumes:
             - name: gcp-credentials

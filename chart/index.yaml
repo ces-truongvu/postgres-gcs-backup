@@ -3,11 +3,20 @@ entries:
   postgres-gcs-backup:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-15T15:34:37.698670935+07:00"
+    created: "2022-06-15T18:06:20.568136224+07:00"
     description: A Helm chart for Kubernetes
-    digest: 142d48151a80201f1eb9cd95255a30b84769b8a557393622c11950f6f4bf2b02
+    digest: d588e764909155162aa6603e72065cc3cfebc42f80376e1469fdfc2e896455ae
+    name: postgres-gcs-backup
+    urls:
+    - postgres-gcs-backup-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-06-15T18:06:20.567871126+07:00"
+    description: A Helm chart for Kubernetes
+    digest: e9dba42d86672c357d991597596aff95e3aae86c1e0b451285fc1babb3db7a7e
     name: postgres-gcs-backup
     urls:
     - postgres-gcs-backup-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-15T15:34:37.697111577+07:00"
+generated: "2022-06-15T18:06:20.567443716+07:00"
