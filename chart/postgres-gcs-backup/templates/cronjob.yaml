@@ -33,6 +33,8 @@ spec:
                 value: {{ .Values.env.POSTGRES_USER | quote }}
               - name: POSTGRES_PASSWORD
                 value: {{ .Values.env.POSTGRES_PASSWORD | quote }}
+              - name: POSTGRES_DB
+                value: {{ .Values.env.POSTGRES_DB | quote }}
               - name: GCS_BUCKET
                 value: {{ .Values.env.GCS_BUCKET | quote }}
               - name: GCS_KEY_FILE_PATH
