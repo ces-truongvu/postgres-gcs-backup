@@ -27,7 +27,16 @@ spec:
             imagePullPolicy: {{ .Values.image.pullPolicy }}
 {{- if .Values.env }}
             env:
-{{ toYaml .Values.env | indent 14 }}
+              - name: POSTGRES_HOST
+                value: {{ .Values.env.POSTGRES_HOST | quote }}
+              - name: POSTGRES_USER
+                value: {{ .Values.env.POSTGRES_USER | quote }}
+              - name: POSTGRES_PASSWORD
+                value: {{ .Values.env.POSTGRES_PASSWORD | quote }}
+              - name: GCS_BUCKET
+                value: {{ .Values.env.GCS_BUCKET | quote }}
+              - name: GCS_KEY_FILE_PATH
+                value: {{ .Values.env.GCS_KEY_FILE_PATH | quote }}
 {{- end }}
             volumeMounts:
               - name: gcp-credentials
