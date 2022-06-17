@@ -1,2 +1,5 @@
 *.env
 *json*
+
+cronjob-testing.yaml
+postgres-auto-backup-deployment-testing.yaml

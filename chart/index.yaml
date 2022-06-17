@@ -3,7 +3,16 @@ entries:
   postgres-gcs-backup:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-17T10:16:52.080658726+07:00"
+    created: "2022-06-17T14:03:27.788094754+07:00"
+    description: A Helm chart for auto backup Postgres DB and push to GCS
+    digest: d2a9447ae8ed9b5984b78e358ec6a25c10d741c499082bcd0e8963d8e9fc9120
+    name: postgres-gcs-backup
+    urls:
+    - postgres-gcs-backup-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2022-06-17T14:03:27.787755335+07:00"
     description: A Helm chart for Kubernetes
     digest: 312ac1e1b01924bdadd50ef0573a0996a16c1492a187d3208d74dcf60ddb43cc
     name: postgres-gcs-backup
@@ -12,7 +21,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-17T10:16:52.080208222+07:00"
+    created: "2022-06-17T14:03:27.787271868+07:00"
     description: A Helm chart for Kubernetes
     digest: 9a7e8170bc006b5f698bf6c7e743129f8fe3179aef81c46f93782e12764c36a8
     name: postgres-gcs-backup
@@ -21,7 +30,7 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-17T10:16:52.079769764+07:00"
+    created: "2022-06-17T14:03:27.78685733+07:00"
     description: A Helm chart for Kubernetes
     digest: e47683233701eedbe518b3481d0dab85d9659d75b30fe9ec0130b6dc3c5915f5
     name: postgres-gcs-backup
@@ -30,7 +39,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-17T10:16:52.079390264+07:00"
+    created: "2022-06-17T14:03:27.786582439+07:00"
     description: A Helm chart for Kubernetes
     digest: d588e764909155162aa6603e72065cc3cfebc42f80376e1469fdfc2e896455ae
     name: postgres-gcs-backup
@@ -39,11 +48,11 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2022-06-17T10:16:52.079038137+07:00"
+    created: "2022-06-17T14:03:27.786294111+07:00"
     description: A Helm chart for Kubernetes
     digest: e9dba42d86672c357d991597596aff95e3aae86c1e0b451285fc1babb3db7a7e
     name: postgres-gcs-backup
     urls:
     - postgres-gcs-backup-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-17T10:16:52.078450111+07:00"
+generated: "2022-06-17T14:03:27.785446561+07:00"
