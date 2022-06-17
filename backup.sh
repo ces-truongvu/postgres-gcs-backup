@@ -5,7 +5,6 @@ set -o errtrace
 set -o nounset
 # set -o xtrace
 
-JOB_NAME=${JOB_NAME:-default-job}
 BACKUP_DIR=${BACKUP_DIR:-/tmp}
 BOTO_CONFIG_PATH=${BOTO_CONFIG_PATH:-/root/.boto}
 GCS_BUCKET=${GCS_BUCKET:-}
@@ -21,6 +20,7 @@ SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL:-}
 SLACK_CHANNEL=${SLACK_CHANNEL:-}
 SLACK_USERNAME=${SLACK_USERNAME:-}
 SLACK_ICON=${SLACK_ICON:-}
+JOB_NAME=${JOB_NAME:-$POSTGRES_DB}
 
 backup() {
   mkdir -p $BACKUP_DIR
