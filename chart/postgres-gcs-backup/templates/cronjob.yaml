@@ -29,6 +29,8 @@ spec:
               - /postgres-gcs-backup/backup.sh
 {{- if .Values.env }}
             env:
+              - name: JOB_NAME
+                value: {{ .Values.env.POSTGRES_DB | quote }}
               - name: POSTGRES_HOST
                 value: {{ .Values.env.POSTGRES_HOST | quote }}
               - name: POSTGRES_USER
