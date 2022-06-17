@@ -1,17 +1,14 @@
-FROM alpine:3.15.4
+FROM postgres:14-alpine
 
 RUN apk add --update \
   bash \
-  postgresql \
   curl \
-  python \
   py-pip \
   py-cffi \
   && pip install --upgrade pip \
   && apk add --virtual build-deps \
   gcc \
   libffi-dev \
-  python-dev \
   linux-headers \
   musl-dev \
   openssl-dev \

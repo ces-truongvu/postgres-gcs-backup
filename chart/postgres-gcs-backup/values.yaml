@@ -1,5 +1,5 @@
 image:
-  repository: diogopms/postgres-gcs-backup
+  repository: cesvn/postgres-gcs-backup
   tag: latest
   pullPolicy: IfNotPresent
 
