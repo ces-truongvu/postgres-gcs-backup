@@ -33,6 +33,8 @@ spec:
                 value: {{ .Values.env.POSTGRES_DB | quote }}
               - name: POSTGRES_HOST
                 value: {{ .Values.env.POSTGRES_HOST | quote }}
+              - name: POSTGRES_PORT
+                value: {{ .Values.env.POSTGRES_PORT | quote }}
               - name: POSTGRES_USER
                 value: {{ .Values.env.POSTGRES_USER | quote }}
               - name: POSTGRES_PASSWORD
@@ -43,6 +45,10 @@ spec:
                 value: {{ .Values.env.GCS_BUCKET | quote }}
               - name: GCS_KEY_FILE_PATH
                 value: {{ .Values.env.GCS_KEY_FILE_PATH | quote }}
+              - name: MATTERMOST_ALERTS
+                value: {{ .Values.env.MATTERMOST_ALERTS | quote }}
+              - name: MATTERMOST_WEBHOOK_URL
+                value: {{ .Values.env.MATTERMOST_WEBHOOK_URL | quote }}
 {{- end }}
             volumeMounts:
               - name: gcp-credentials

@@ -3,6 +3,20 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
+env:
+  JOB_NAME: "default-name"
+  POSTGRES_HOST: "localhost"
+  POSTGRES_PORT: 5432
+  POSTGRES_USER: ""
+  POSTGRES_PASSWORD: ""
+  POSTGRES_DB: ""
+  GCS_BUCKET: ""
+  GCS_KEY_FILE_PATH: ""
+  MATTERMOST_ALERTS: ""
+  MATTERMOST_WEBHOOK_URL: ""
+
+secretName: ""
+
 resources: {}
 #  limits:
 #    cpu: 100m

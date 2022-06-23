@@ -15,12 +15,8 @@ POSTGRES_PORT=${POSTGRES_PORT:-5432}
 POSTGRES_DB=${POSTGRES_DB:-}
 POSTGRES_USER=${POSTGRES_USER:-}
 POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-}
-SLACK_ALERTS=${SLACK_ALERTS:-}
-SLACK_AUTHOR_NAME=${SLACK_AUTHOR_NAME:-postgres-gcs-backup}
-SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL:-}
-SLACK_CHANNEL=${SLACK_CHANNEL:-}
-SLACK_USERNAME=${SLACK_USERNAME:-}
-SLACK_ICON=${SLACK_ICON:-}
+MATTERMOST_ALERTS=${MATTERMOST_ALERTS:-}
+MATTERMOST_WEBHOOK_URL=${MATTERMOST_WEBHOOK_URL:-}
 
 backup() {
   mkdir -p $BACKUP_DIR
@@ -68,32 +64,22 @@ EOF
   gsutil cp $BACKUP_DIR/$archive_name $GCS_BUCKET
 }
 
-send_slack_message() {
-  local color=${1}
-  local title=${2}
-  local message=${3}
+send_mattermost_message() {
+  local message=${1}
 
-  echo 'Sending to '${SLACK_CHANNEL}'...'
-  curl --data-urlencode \
-    "$(printf 'payload={"channel": "%s", "username": "%s", "link_names": "true", "icon_url": "%s", "attachments": [{"author_name": "%s", "title": "%s", "text": "%s", "color": "%s"}]}' \
-        "${SLACK_CHANNEL}" \
-        "${SLACK_USERNAME}" \
-        "${SLACK_ICON}" \
-        "${SLACK_AUTHOR_NAME}" \
-        "${title}" \
-        "${message}" \
-        "${color}" \
-    )" \
-    ${SLACK_WEBHOOK_URL} || true
-  echo
+  echo 'Sending to Mattermost...'
+  curl -i -X POST -H "Content-Type: application/json" \
+       -d "{\"text\": \"${message}\"}"  \
+       ${MATTERMOST_WEBHOOK_URL}
 }
 
 err() {
-  err_msg="${JOB_NAME} Something went wrong on line $(caller)"
+  err_msg="${JOB_NAME}: Something went wrong on line $(caller)"
+
   echo $err_msg >&2
-  if [[ $SLACK_ALERTS == "true" ]]
+  if [[ $MATTERMOST_ALERTS == "true" ]]
   then
-    send_slack_message "danger" "Error while performing postgres backup" "$err_msg"
+    send_mattermost_message "$err_msg"
   fi
 }
 
